@@ -1,0 +1,29 @@
+# Mini Project 1: Smart Electricity Bill Calculator
+
+name = input("Enter customer name: ")
+units = float(input("Enter units consumed: "))
+
+if units < 0:
+    print("Invalid units!")
+else:
+    if units <= 100:
+        energy_charge = units * 3
+    elif units <= 200:
+        energy_charge = 100 * 3 + (units - 100) * 5
+    else:
+        energy_charge = 100 * 3 + 100 * 5 + (units - 200) * 7
+
+    service_charge = 150
+    bill = energy_charge + service_charge
+
+    print("\n--- Electricity Bill ---")
+    print("Customer Name:", name)
+    print("Units Consumed:", units)
+    print("Energy Charge: Rs.", round(energy_charge, 2))
+    print("Service Charge: Rs.", service_charge)
+    print("Final Bill: Rs.", round(bill, 2))
+
+    if bill > 5000:
+        print("Usage Message: High Usage Bill")
+    else:
+        print("Usage Message: Normal Usage")
